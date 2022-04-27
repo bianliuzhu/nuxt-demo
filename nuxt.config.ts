@@ -1,4 +1,16 @@
+/*
+ * @Description:
+ * @Author: Gleason
+ * @Date: 2022-04-25 16:40:57
+ * @LastEditors: Gleason
+ * @LastEditTime: 2022-04-27 17:14:59
+ */
 export default {
+	// 端口号
+	server: {
+		port: 8090,
+		host: '0.0.0.0',
+	},
 	// Global page headers: https://go.nuxtjs.dev/config-head
 	head: {
 		title: 'nuxt-demo',
@@ -18,7 +30,11 @@ export default {
 	css: [],
 
 	// Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-	plugins: [],
+	plugins: [
+		'~/plugins/vue-inject.ts',
+		'~/plugins/ctx-inject.ts',
+		'@/plugins/all-inject.ts',
+	],
 
 	// Auto import components: https://go.nuxtjs.dev/config-components
 	components: true,
@@ -41,7 +57,14 @@ export default {
 	axios: {
 		// Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
 		baseURL: '/',
+		proxy: true, // 启用代理
+		prefix: '/api',
 	},
+	// proxy: {
+	// 	'/api': {
+	// 		target: '',
+	// 	},
+	// },
 
 	// Build Configuration: https://go.nuxtjs.dev/config-build
 	build: {},

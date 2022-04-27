@@ -5,12 +5,14 @@
 		"moduleResolution": "Node",
 		"lib": ["ESNext", "ESNext.AsyncIterable", "DOM"],
 		"esModuleInterop": true,
+		"noImplicitAny": false, // 是否在表达式和声明上有隐含的any类型时报错
 		"allowJs": true,
 		"sourceMap": true,
 		"strict": true,
 		"noEmit": true,
 		"experimentalDecorators": true,
 		"baseUrl": ".",
+		"jsx": "preserve",
 		"paths": {
 			"~/*": ["./*"],
 			"@/*": ["./*"]
