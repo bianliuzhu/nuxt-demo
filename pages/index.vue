@@ -24,9 +24,7 @@ type ResponseType = {
 @Component({
 	name: 'IndexPage',
 	async asyncData({ $axios }) {
-		const response: ResponseType = await $axios.$get(
-			'https://mock.presstime.cn/mock/6268fe15830905001f16cd22/blog/test'
-		)
+		const response: ResponseType = await $axios.$get('/test')
 		return { resData: response.data }
 	},
 })

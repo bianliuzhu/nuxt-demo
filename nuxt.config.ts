@@ -3,7 +3,7 @@
  * @Author: Gleason
  * @Date: 2022-04-25 16:40:57
  * @LastEditors: Gleason
- * @LastEditTime: 2022-04-27 17:14:59
+ * @LastEditTime: 2022-04-27 22:45:14
  */
 export default {
 	// 端口号
@@ -56,15 +56,17 @@ export default {
 	// Axios module configuration: https://go.nuxtjs.dev/config-axios
 	axios: {
 		// Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-		baseURL: '/',
 		proxy: true, // 启用代理
 		prefix: '/api',
 	},
-	// proxy: {
-	// 	'/api': {
-	// 		target: '',
-	// 	},
-	// },
+	proxy: {
+		'/api': {
+			target: 'https://mock.presstime.cn/mock/6268fe15830905001f16cd22/blog',
+			pathRewrite: {
+				'^/api': '',
+			},
+		},
+	},
 
 	// Build Configuration: https://go.nuxtjs.dev/config-build
 	build: {},
